@@ -22,9 +22,10 @@ module.exports =
         alpha: 1
       return colorObject
 
-    [red, green, blue, alpha] = color.split(",").map (val)-> parseInt val.trim()
-    if red and green and blue
-      alpha ?= 1
+    [red, green, blue, alpha] = color.split(",").map (val)-> parseFloat val.trim()
+    if red >= 0 and green >= 0 and blue >= 0
+      alpha = 1 if alpha is NaN
+      alpha = 1 if alpha is undefined
       return {red, green, blue, alpha}
 
     raw: color
@@ -59,7 +60,9 @@ module.exports =
         else
           bgc = color.raw
 
-        $el.css
-          backgroundColor: bgc
-          borderRadius: 2
-          color: @inverseColor $el.text()
+        if $el.data("color") isnt bgc
+          $el.data "color", bgc
+          $el.css
+            backgroundColor: bgc
+            borderRadius: 2
+            color: @inverseColor $el.text()
