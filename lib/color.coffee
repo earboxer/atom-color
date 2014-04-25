@@ -66,7 +66,9 @@ module.exports =
 
         if $el.data("color") isnt bgc
           $el.data "color", bgc
+          inv = @inverseColor $el.text()
           $el.css
             backgroundColor: bgc
             borderRadius: 2
-            color: @inverseColor $el.text()
+            textShadow: "0 1px 2px #000"
+            color: inv
