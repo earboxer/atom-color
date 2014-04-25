@@ -46,6 +46,9 @@ module.exports =
 
   activate: ->
     $(atom.workspaceView).on "keyup", _.debounce (=> @compile()), 100
+    setInterval =>
+      @compile()
+    , 1000
     @compile()
 
   compile: (context)->
