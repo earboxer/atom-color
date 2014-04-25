@@ -1,4 +1,5 @@
 {$} = require "atom"
+_ = require "underscore-plus"
 
 module.exports =
 
