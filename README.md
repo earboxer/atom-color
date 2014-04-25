@@ -1,6 +1,6 @@
 # Atom CSS Color Viewer
 
-Simple CSS color viewer for Atom.
+Simple CSS color viewer for Atom, **automatically enabled**.
 
 Thanks [Adem İlter][1] and [interacthings][2] for the idea :)
 
