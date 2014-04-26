@@ -3,6 +3,9 @@ _ = require "underscore-plus"
 
 module.exports =
 
+  configDefaults:
+    fillColorAsBackground: yes
+
   parseColor: (color)->
 
     hex = (code) -> parseInt code, 16
@@ -53,6 +56,11 @@ module.exports =
     @compile()
 
   compile: (context)->
+
+    fill = atom.config.get "color.fillColorAsBackground"
+    size = atom.config.get "editor.fontSize"
+    line = atom.config.get "editor.lineHeight"
+
     $activeEditorView = $ atom.workspaceView.getActiveView()
     $(".source.css .color", $activeEditorView)
       .each (i, el)=>
@@ -66,9 +74,26 @@ module.exports =
 
         if $el.data("color") isnt bgc
           $el.data "color", bgc
-          inv = @inverseColor $el.text()
-          $el.css
-            backgroundColor: bgc
-            borderRadius: 2
-            textShadow: "0 1px 2px #000"
-            color: inv
+
+          if fill
+            inv = @inverseColor $el.text()
+            $el.css
+              backgroundColor: bgc
+              borderRadius: 2
+              textShadow: "0 1px 2px #000"
+              color: inv
+          else
+            curLine = $el.closest ".line"
+            curLine.css position: "relative"
+            lineEnd = curLine.find(".invisible-character:last")
+            colorBox = $ '<span class="color-box">&nbsp;</span>'
+            colorBox.css
+              backgroundColor: bgc
+              width: (size * line) - 4
+              height: (size * line) - 4
+              marginLeft: size/2
+              borderRadius: "50%"
+              position: "relative"
+              top: 2
+              display: "inline-block"
+            lineEnd.before colorBox
