@@ -18,11 +18,11 @@ the color formats **HEX, Short HEX, rgb and rgba**
 
 ## Show on Line End
 
-![Atom Color Line](https://dl.dropboxusercontent.com/u/20947008/webbox/atom/atom-color-5.png)
-
 To use line endings, disable filling:
 
 ![Atom Color Setting](https://dl.dropboxusercontent.com/u/20947008/webbox/atom/atom-color-settings.png)
+
+![Atom Color Line](https://dl.dropboxusercontent.com/u/20947008/webbox/atom/atom-color-5.png)
 
 ## Embedded CSS
 
