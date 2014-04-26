@@ -12,7 +12,19 @@ apm install color
 It shows the colors of the CSS colors in all
 the color formats **HEX, Short HEX, rgb and rgba**
 
-![Atom Color](https://dl.dropboxusercontent.com/u/20947008/webbox/atom/atom-color-3.png)
+## Background Filling
+
+![Atom Color Fill](https://dl.dropboxusercontent.com/u/20947008/webbox/atom/atom-color-3.png)
+
+## Show on Line End
+
+![Atom Color Line](https://dl.dropboxusercontent.com/u/20947008/webbox/atom/atom-color-5.png)
+
+To use line endings, disable filling:
+
+![Atom Color Setting](https://dl.dropboxusercontent.com/u/20947008/webbox/atom/atom-color-settings.png)
+
+## Embedded CSS
 
 Also you can use in HTML or **embedded CSS**
 
