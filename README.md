@@ -30,5 +30,42 @@ Also you can use in HTML or **embedded CSS**
 
 ![Atom Color Embedded](https://dl.dropboxusercontent.com/u/20947008/webbox/atom/atom-color-4.png)
 
+## Customization
+
+You can edit your `styles.less` to customize colors.
+
+```less
+// ~/.atom/styles.less
+.editor {
+  .color-box {
+
+    // Customize Line Endings
+    &.on-line-end {
+      border-radius: 2px 5px;
+      margin-left: 1px;
+      border: 1px solid #fff;
+      background-image: -webkit-linear-gradient(
+        top,
+        transparent 0%,
+        rgb(200, 200, 200) 100%);
+    }
+
+    // Customize Background Mode
+    &.on-background {
+      border-radius: 0;
+      text-shadow: none;
+      box-shadow: 0 0 5px 2px #fff;
+      border: 1px solid #000;
+    }
+  }
+}
+```
+
+When you apply these settings, you'll see something like that:
+
+![Atom Customize 1](https://dl.dropboxusercontent.com/u/20947008/webbox/atom/atom-color-6.png)
+
+![Atom Customize 2](https://dl.dropboxusercontent.com/u/20947008/webbox/atom/atom-color-7.png)
+
 [1]: https://twitter.com/ademilter
 [2]: http://interacthings.com/

@@ -76,24 +76,18 @@ module.exports =
           $el.data "color", bgc
 
           if fill
-            inv = @inverseColor $el.text()
+            $el.addClass "color-box on-background"
             $el.css
               backgroundColor: bgc
-              borderRadius: 2
-              textShadow: "0 1px 2px #000"
-              color: inv
+              color: @inverseColor $el.text()
           else
             curLine = $el.closest ".line"
-            curLine.css position: "relative"
             lineEnd = curLine.find(".invisible-character:last")
-            colorBox = $ '<span class="color-box">&nbsp;</span>'
+
+            colorBox = $ '<span/>'
+            colorBox.addClass "color-box on-line-end"
             colorBox.css
               backgroundColor: bgc
               width: (size * line) - 4
               height: (size * line) - 4
-              marginLeft: size/2
-              borderRadius: "50%"
-              position: "relative"
-              top: 2
-              display: "inline-block"
             lineEnd.before colorBox
