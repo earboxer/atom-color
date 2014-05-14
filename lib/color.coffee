@@ -82,7 +82,6 @@ module.exports =
               color: @inverseColor $el.text()
           else
             curLine = $el.closest ".line"
-            lineEnd = curLine.find(".invisible-character:last")
 
             colorBox = $ '<span/>'
             colorBox.addClass "color-box on-line-end"
@@ -90,4 +89,4 @@ module.exports =
               backgroundColor: bgc
               width: (size * line) - 4
               height: (size * line) - 4
-            lineEnd.before colorBox
+            curLine.append colorBox
