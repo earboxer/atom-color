@@ -62,7 +62,7 @@ module.exports =
     line = atom.config.get "editor.lineHeight"
 
     $activeEditorView = $ atom.workspaceView.getActiveView()
-    $(".source.css .color", $activeEditorView)
+    $(".source.css .color, .source.stylus .color, .source.less .color, .source.sass .color", $activeEditorView)
       .each (i, el)=>
         $el = $ el
         color = @parseColor $el.text()
