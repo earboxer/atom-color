@@ -1,5 +1,5 @@
 {
-  "name": "color",
+  "name": "webbox-color",
   "main": "./lib/color",
   "version": "0.5.2",
   "description": "Simple CSS color viewer for Atom, automatically.",
