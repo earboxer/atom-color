@@ -6,7 +6,7 @@ Thanks [Adem İlter][1] and [interacthings][2] for the idea :)
 
 Install:
 ```bash
-apm install color
+apm install webbox-color
 ```
 
 It shows the colors of the CSS colors in all
@@ -66,6 +66,14 @@ When you apply these settings, you'll see something like that:
 ![Atom Customize 1](https://dl.dropboxusercontent.com/u/20947008/webbox/atom/atom-color-6.png)
 
 ![Atom Customize 2](https://dl.dropboxusercontent.com/u/20947008/webbox/atom/atom-color-7.png)
+
+
+## Change Log
+
+### 2015-01-04
+
+* less/sass support added (fixed issue #5, thanx 2 [khuongduybui](https://github.com/khuongduybui))
+* package name changed to: webbox-color
 
 [1]: https://twitter.com/ademilter
 [2]: http://interacthings.com/
