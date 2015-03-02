@@ -1,10 +1,12 @@
-{$} = require "atom"
+{$, TextEditorView, View} = require "atom-space-pen-views"
 _ = require "underscore-plus"
 
 module.exports =
 
-  configDefaults:
-    fillColorAsBackground: yes
+  config:
+    fillColorAsBackground:
+      type: 'boolean'
+      default: true
 
   parseColor: (color)->
 
@@ -48,21 +50,24 @@ module.exports =
 
     if brightness < 130 then "#fff" else "#000"
 
-  activate: ->
-    $(atom.workspaceView).on "keyup", _.debounce (=> @compile()), 100
-    setInterval =>
-      @compile()
-    , 1000
-    @compile()
+  activate: (state) ->
+    atom.workspace.observeTextEditors (editor) =>
+      _editor = editor
+      editor.onDidChange =>
+        _.debounce (=> @compile(_editor)), 100
+        setInterval =>
+          @compile(_editor)
+        , 1000
+        @compile(_editor)
 
-  compile: (context)->
-
-    fill = atom.config.get "color.fillColorAsBackground"
+  compile: (_editor, context)->
+    view = $(atom.views.getView(_editor))
+    shadow = $(view[0].shadowRoot)
+    fill = atom.config.get "webbox-color.fillColorAsBackground"
     size = atom.config.get "editor.fontSize"
     line = atom.config.get "editor.lineHeight"
 
-    $activeEditorView = $ atom.workspaceView.getActiveView()
-    $(".source.css .color, .source.stylus .color, .source.less .color, .source.sass .color", $activeEditorView)
+    shadow.find(".source.css .color, .source.stylus .color, .source.less .color, .source.sass .color")
       .each (i, el)=>
         $el = $ el
         color = @parseColor $el.text()

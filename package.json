@@ -1,14 +1,15 @@
 {
   "name": "webbox-color",
   "main": "./lib/color",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "description": "Simple CSS color viewer for Atom, automatically.",
-  "repository": "https://github.com/webBoxio/atom-color",
+  "repository": "https://github.com/gmoore-sjcorg/atom-color",
   "license": "MIT",
   "engines": {
-    "atom": ">0.50.0"
+    "atom": ">=0.174.0 <2.0.0"
   },
   "dependencies": {
-    "underscore-plus": "^1.2.1"
+    "underscore-plus": "^1.2.1",
+    "atom-space-pen-views": "^2.0.3"
   }
 }
