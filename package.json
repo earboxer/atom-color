@@ -3,7 +3,7 @@
   "main": "./lib/color",
   "version": "0.5.5",
   "description": "Simple CSS color viewer for Atom, automatically.",
-  "repository": "https://github.com/gmoore-sjcorg/atom-color",
+  "repository": "https://github.com/webBoxio/atom-color",
   "license": "MIT",
   "engines": {
     "atom": ">=0.174.0 <2.0.0"
