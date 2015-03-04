@@ -70,6 +70,10 @@ When you apply these settings, you'll see something like that:
 
 ## Change Log
 
+### 2015-03-04
+
+* Atom API deprication fixed by [gmoore-sjcorg](https://github.com/gmoore-sjcorg)
+
 ### 2015-01-04
 
 * less/sass support added (fixed issue #5, thanx 2 [khuongduybui](https://github.com/khuongduybui))
