@@ -37,7 +37,6 @@ module.exports =
     raw: color
 
   inverseColor: (color)->
-    color = @parseColor color
 
     if color.raw
       return "#fff"
@@ -67,10 +66,11 @@ module.exports =
     size = atom.config.get "editor.fontSize"
     line = atom.config.get "editor.lineHeight"
 
-    shadow.find(".source.css .color, .source.stylus .color, .source.less .color, .source.sass .color")
+    shadow.find(".source.css .color, .source.stylus .color, .source.less .color, .source.sass .color, .source.velocity .quoted")
       .each (i, el)=>
         $el = $ el
-        color = @parseColor $el.text()
+        text = $el.text().trim().replace(/\"|\,/gi,"")
+        color = @parseColor text
 
         unless color.raw
           bgc = "rgba(#{color.red}, #{color.green}, #{color.blue}, #{color.alpha})"
@@ -84,7 +84,7 @@ module.exports =
             $el.addClass "color-box on-background"
             $el.css
               backgroundColor: bgc
-              color: @inverseColor $el.text()
+              color: @inverseColor color
           else
             curLine = $el.closest ".line"
 
