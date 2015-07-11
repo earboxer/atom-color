@@ -1,7 +1,7 @@
 {
   "name": "webbox-color",
   "main": "./lib/color",
-  "version": "0.5.7",
+  "version": "0.5.8",
   "description": "Simple CSS color viewer for Atom, automatically.",
   "repository": "https://github.com/webBoxio/atom-color",
   "license": "MIT",
