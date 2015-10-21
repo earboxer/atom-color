@@ -51,15 +51,12 @@ module.exports =
 
   activate: (state) ->
     atom.workspace.observeTextEditors (editor) =>
-      _editor = editor
-      editor.onDidChange =>
-        _.debounce (=> @compile(_editor)), 100
-        setInterval =>
-          @compile(_editor)
-        , 1000
-        @compile(_editor)
+      compile = @compile.bind(@, editor)
+      # editor.onDidChange debouncedCompile
+      editor.onDidStopChanging compile
+      _.defer compile
 
-  compile: (_editor, context)->
+  compile: (_editor, context) ->
     view = $(atom.views.getView(_editor))
     shadow = $(view[0].shadowRoot)
     fill = atom.config.get "webbox-color.fillColorAsBackground"
